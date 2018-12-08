@@ -1,0 +1,159 @@
+<html lang="en">
+  <head>
+      <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='heart.jpg') }}">
+      <link href="https://unpkg.com/nes.css/css/nes.min.css" rel="stylesheet" />
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <title>CazMouse</title>
+  </head>
+  <style>
+.outside {
+    background-image: url({{ url_for('static', filename='background.png') }});
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 200px;
+    min-width: 600px;
+}
+.content {
+    background-color: #fff8ec;
+    border: 7px double #000000;
+    border-radius: 25px;
+    height: 200px;
+    width: 600px;
+}
+.right {
+    float: right;
+}
+.left {
+    float: left;
+}
+.clear {
+    clear: both;
+}
+.btn-extra {
+    width: 250px;
+}
+.footer {
+    width: 100%;
+    bottom: 0px;
+    font-size: 0.7em;
+    height: 40px;
+    left: 0px;
+    margin-bottom: 0px;
+    position: fixed;
+    right: 0px;
+    text-align: center;
+}
+.display-none {
+    display: none;
+}
+  </style>
+  <script>
+function showContent(content) {
+    var contents = [
+        "home",
+        "download",
+        "explain1",
+        "explain2",
+        "explain3",
+        "explain4",
+        "explain5",
+    ]
+    for (i = 0; i < contents.length; i++) {
+        if (contents[i] === content) {
+            document.getElementById(contents[i]).style.display = "inline";
+        } else {
+            document.getElementById(contents[i]).style.display = "none";
+        }
+    }
+}
+  </script>
+  <body>
+    <div class="containers outside">
+      <div id="home" class="container is-rounded content">
+        <div class="right">
+          <i class="octocat animate right"></i>
+        </div>
+        <div>
+          <h1>CazMouse&#8482;</h1>
+          <p>The moving mouse pointer app</p>
+        </div>
+        <div class="left">
+          <button class="btn btn-extra is-warning" onclick="showContent('explain1')">EXPLAIN</button>
+        </div>
+        <div class="right">
+          <button class="btn btn-extra is-primary" onclick="showContent('download')">DOWNLOAD</button>
+        </div>
+      </div>
+      <div id="download" class="container is-rounded content display-none">
+        <p>Pick one!</p>
+        <div class="left">
+          <button class="btn btn-extra is-primary" onclick="location.href='/download/caz_mouse.exe'">Windows</button>
+          <button class="btn btn-extra is-success" onclick="location.href='/download/caz_mouse_for_mac'">MacOS</button>
+          <button class="btn btn-extra is-warning" onclick="alert('sorry not available yet">Linux/Debian</button>
+          <button class="btn btn-extra" onclick="showContent('home')">GO BACK</button>
+        </div>
+      </div>
+      <div id="explain1" class="container is-rounded content display-none">
+        <p style="margin-top:8px">Erm.. moves your mouse pointer about in a random fashion. Useful perhaps if "working" from home...</p>
+        <div class="left">
+          <button class="btn btn-extra" onclick="showContent('explain2')">TELL ME MORE!</button>
+        </div>
+        <div class="right">
+          <button class="btn btn-extra is-primary" onclick="showContent('download')">DOWNLOAD</button>
+        </div>
+      </div>
+      <div id="explain2" class="container is-rounded content display-none">
+        <i class="bcrikko"></i>
+        <p class="right">WOW! You'd like to know more?</p>
+        <div style="margin-top:32px">
+          <div class="left">
+            <button class="btn btn-extra" onclick="showContent('explain3')">SURE!</button>
+          </div>
+          <div class="right">
+            <button class="btn btn-extra is-primary" onclick="showContent('download')">NO THANKS</button>
+          </div>
+        </div>
+      </div>
+      <div id="explain3" class="container is-rounded content display-none">
+        <p style="padding-bottom:32px">Well. A few weeks ago I really upset my friend. I was awful</p>
+        <div>
+          <div class="left">
+            <button class="btn btn-extra" onclick="showContent('explain4')">GO ON...</button>
+          </div>
+          <div class="right">
+            <button class="btn btn-extra is-primary" onclick="showContent('download')">BORED NOW</button>
+          </div>
+        </div>
+      </div>
+      <div id="explain4" class="container is-rounded content display-none">
+        <i class="icon heart is-large"></i>
+        <p class="right">So I made this for her!</p>
+        <div style="margin-top:32px">
+          <div class="left">
+            <button class="btn btn-extra" onclick="showContent('explain5')">AWWW!</button>
+          </div>
+          <div class="right">
+            <button class="btn btn-extra is-primary" onclick="showContent('explain5')">WHATEVER</button>
+          </div>
+        </div>
+      </div>
+      <div id="explain5" class="container is-rounded content display-none">
+        <i class="octocat animate right"></i>
+        <p>So that's that. Knock yourself out with this almost totally useless app!</p>
+        <div class="clear" style="margin-top:25px">
+          <div class="left">
+            <button class="btn btn-extra" onclick="showContent('download')">OKAY THANKS!</button>
+          </div>
+          <div class="right">
+            <button class="btn btn-extra is-primary" onclick="showContent('download')">CAN I GO NOW?</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+        <p>A RogDog Production</p>
+    </div>
+  </body>
+</html>
