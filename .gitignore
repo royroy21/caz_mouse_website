@@ -2,4 +2,6 @@ include/
 lib/
 pip-selfcheck.json
 env
++app.ini
++wsgi.py
 *.pyc
